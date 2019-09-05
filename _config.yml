@@ -88,6 +88,8 @@ side_bar_repo_limit: 5 # Number of repos to show
 #      tracking_id : 'tracking_id'  # ex. UA-72165600-X
 
 
+
+
 # For about.html. Fell free to create your own!
 skill_software_keywords: [Java, MySQL, Oracle, PL/SQL]
 skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
@@ -96,36 +98,13 @@ skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, MongoDB]
 
 
 
-comments_provider: gitalk
-# !!!重要!!! 请修改下面这些信息为你自己申请的
-# !!!Important!!! Please modify infos below to yours
-# https://disqus.com
-disqus:
-    username:
-# https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: kidoneself
-    repo: kidoneself.github.io
-    oauth:
-        client_id: b2d8ca08fc18b41d60dd
-        client_secret: 3183656e16f72d9414dc639bba330ef8060f7b50
-# https://github.com/gitalk/gitalk#install
-gitalk:
-    owner: kidoneself
-    repo: kidoneself.github.io
-    clientID: b2d8ca08fc18b41d60dd
-    clientSecret: 3183656e16f72d9414dc639bba330ef8060f7b50
-# 在使用其它评论组件时可点击显示 Disqus
-lazy_load_disqus : false
-
-# ---------------- #
-#      Search      #
-# ---------------- #
-simple_jekyll_search:
-    # 是否支持全文搜索
-    fulltext: false
-    # 最多显示多少条搜索结果
-    limit: 10
+gitalk: true
+gitalk_clientid: 'b2d8ca08fc18b41d60dd'
+gitalk_secret: '3183656e16f72d9414dc639bba330ef8060f7b50'
+gitalk_repo: 'kidoneself.github.io'
+gitalk_owner: 'kidoneself'
+gitalk_admin: 'kidoneself'
+gitalk_dfm: false
 
 # ---------------- #
 #    Analytics     #
