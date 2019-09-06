@@ -3,11 +3,124 @@
   <channel>
     <title>码农基德</title>
     <description>这是我的博客</description>
-    <link>http://127.0.0.1:4000//</link>
-    <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 Sep 2019 16:57:08 +0800</pubDate>
-    <lastBuildDate>Thu, 05 Sep 2019 16:57:08 +0800</lastBuildDate>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 06 Sep 2019 16:04:17 +0800</pubDate>
+    <lastBuildDate>Fri, 06 Sep 2019 16:04:17 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>查漏补缺--对象构造函数</title>
+        <description>&lt;p&gt;Java查漏补缺—构造函数使用方法&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;构造函数必须与类同名。&lt;/li&gt;
+  &lt;li&gt;每个类可以0个、1个或者1个以上的构造器。（0个默认有1个无参构造函数）。&lt;/li&gt;
+  &lt;li&gt;构造函数可以有≥0个参数。&lt;/li&gt;
+  &lt;li&gt;构造函数没有返回值。&lt;/li&gt;
+  &lt;li&gt;构造函数总是伴随着new操作一起调用。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;案例一&lt;br /&gt;
+```Java&lt;br /&gt;
+//无参构造函数&lt;br /&gt;
+public class A {&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private String name;
+private Integer age;
+
+//无参构造
+A() {
+}
+
+public static void main(String[] args) {
+    A a = new A();
+    System.out.println(a.name + &quot;---&quot; + a.age);
+} } ``` &amp;gt; 结果：null---null
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;案例二&lt;br /&gt;
+```Java&lt;br /&gt;
+//带参构造函数&lt;br /&gt;
+public class B {&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private String name;
+private Integer age;
+
+//全参构造方法
+public B(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+}
+
+public static void main(String[] args) {
+    B b = new B(&quot;name&quot;, 8);
+    System.out.println(b.name + &quot;---&quot; + b.age);
+} } ````   &amp;gt;结果：name---8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;构造代码块：&lt;br /&gt;
+  给所有对象进行统一的初始化使用&lt;br /&gt;
+  ```Java&lt;/p&gt;
+
+&lt;p&gt;public class C {&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private String name;
+private Integer age;
+
+{
+    d();
+}
+
+//无参构造
+public C() {
+}
+
+//全参构造
+public C(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+}
+
+private void d() {
+    System.out.println(&quot;代码块&quot;);
+}
+
+public static void main(String[] args) {
+    C c = new C();
+    new C(&quot;name&quot;, 8);
+} } ``` &amp;gt;结果：
+  代码块
+  代码块
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;代码块与构造器的区别：&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;构造代码块是给所有对象进行统一的初始化，构造函数是给对应的对象初始化。&lt;/li&gt;
+      &lt;li&gt;构造代码块是将所有构造方法中公共的信息进行抽取。&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 05 Sep 2019 21:20:00 +0800</pubDate>
+        <link>http://127.0.0.1:4000/java/%E5%9F%BA%E7%A1%80/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/2019/09/05/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA-%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.html</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/java/%E5%9F%BA%E7%A1%80/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/2019/09/05/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA-%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.html</guid>
+        
+        
+        <category>Java</category>
+        
+        <category>基础</category>
+        
+        <category>查漏补缺</category>
+        
+      </item>
     
   </channel>
 </rss>
