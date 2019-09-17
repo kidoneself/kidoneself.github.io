@@ -15,7 +15,7 @@ python学习 操作mysql mysql.connector模块
 
   数据库我是用的docker，免去了各种配置的烦恼。节约我的电脑空间内存，可以看上一篇文章。
 
-1. 查询操作
+### 查询操作
 
 ```python
 
@@ -46,7 +46,7 @@ con.close()
 需要注意的是sursor的第二个参数，即sql的参数，一定是一个列表或者数组传入，否则会报错，参数错误。
 
 
-2. 插入语句，事务管理
+### 插入语句，事务管理
 
 ```python
 import mysql.connector
@@ -79,7 +79,7 @@ finally:
 ```
 
 
-3. 创建连接池，节约资源
+### 创建连接池，节约资源
   ```python
   import mysql.connector.pooling
 
@@ -111,6 +111,3 @@ finally:
           con.rallback()
       print(e)
   ```
-
-
-  
