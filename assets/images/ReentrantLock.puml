@@ -1,0 +1,30 @@
+@startuml
+header Reentrantlock实现过程
+footer Reentrantlock实现过程
+|Reentrant|
+start
+:Lock();
+
+|Sync|
+:lock();
+
+|NonfairSync|
+:lock();
+
+|AbstractQueuedSynchronizer|
+
+if (compareAndSetState(0, 1)) then (true)
+|AbstractOwnableSynchronizer|
+:setExclusiveOwnerThread;
+stop
+else (false)
+  |AbstractQueuedSynchronizer|
+  :acquire();
+  if(!tryAcquire) then(true)
+endif
+|redis|
+:setExclusiveOwnerThread;
+|tomcat|
+:组装响应参数;
+stop
+@enduml
