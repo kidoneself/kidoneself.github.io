@@ -1,0 +1,2 @@
+# kidoneself.github.io
+wiki
