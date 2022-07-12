@@ -1,2 +1,1 @@
-# kidoneself.github.io
-wiki
+safdsf
