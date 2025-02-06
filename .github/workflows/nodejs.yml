@@ -24,8 +24,6 @@ jobs:
       - name: Install Yarn 1.22.19
         run: |
           npm install -g yarn@berry
-          yarn set version latest
-          yarn version
 
 #
 #      # 安装依赖
