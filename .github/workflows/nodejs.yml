@@ -35,6 +35,7 @@ jobs:
       # 构建静态文件
       - name: Build Static Files
         run: |
+          pwd
           yarn build  # 构建 VuePress 静态文件
 
       # 提交并推送所有代码到 main 分支
