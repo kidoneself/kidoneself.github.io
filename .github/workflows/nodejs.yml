@@ -42,10 +42,11 @@ jobs:
       # 将构建的静态文件推送到 GitHub Pages 的 gh-pages 分支
       - name: Deploy to GitHub Pages
         run: |
-          cd .vuepress/dist  # 进入构建输出目录
+          cd .vuepress/dist 
+          git branch -a
           git config --global user.name "action"
           git config --global user.email "8768611@qq.com"
-          git checkout gh-pages
+          git checkout --orphan gh-pages
           cp -r .vuepress/dist/* .
           git add .
           git commit -m "Deploy built files"
@@ -57,7 +58,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
           cd /home/kidoneself.github.io  # 进入服务器的项目目录
           git pull origin gh-pages  # 拉取最新代码
-          #            yarn build  # 重新构建静态文件
           sudo systemctl restart caddy  # 重启 Caddy 服务
           EOF
         env:
