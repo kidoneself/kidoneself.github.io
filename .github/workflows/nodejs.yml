@@ -43,9 +43,9 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           cd .vuepress/dist  # 进入构建输出目录
-          git init 
           git config --global user.name "action"
           git config --global user.email "8768611@qq.com"
+          cp -r .vuepress/dist/* .
           git add -f .
           git commit -m "Deploy built files"
           git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
@@ -53,9 +53,10 @@ jobs:
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
         run: |
-          ssh - root@43.134.58.162 -p Lzq951201@ 'bash -s' << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
           cd /home/kidoneself.github.io  # 进入服务器的项目目录
           git pull origin gh-pages  # 拉取最新代码
+          #            yarn build  # 重新构建静态文件
           sudo systemctl restart caddy  # 重启 Caddy 服务
           EOF
         env:
