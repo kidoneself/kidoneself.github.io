@@ -40,7 +40,9 @@ jobs:
           git add -A
           git commit -m 'deploy'
           git checkout -b gh-pages
-          git push -f https://github.com/kidoneself/kidoneself.github.io.git master:gh-pages
+
+          git push -f https://$GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git gh-pages
+
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
