@@ -33,15 +33,14 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          cd .vuepress/dist  # 进入构建输出目录
+          cd .vuepress/dist
           git config --global user.name "action"
           git config --global user.email "8768611@qq.com"
-          git init  
-          git add . 
-          git commit -m "Deploy built files"
+          git init
+          git add -A
+          git commit -m 'deploy'
           git checkout -b gh-pages
           git push -f https://github.com/kidoneself/kidoneself.github.io.git master:gh-pages
-
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
