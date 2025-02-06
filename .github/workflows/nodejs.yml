@@ -20,12 +20,6 @@ jobs:
         with:
           node-version: '23.5.0'  # 设置 Node.js 版本
 
-      # 安装 Yarn 2.x (Berry)
-      - name: Install Yarn 1.22.19
-        run: |
-          npm install -g yarn@berry
-
-
       # 安装依赖
       - name: Install Dependencies
         run: |
@@ -49,10 +43,13 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           cd .vuepress/dist  # 进入构建输出目录
-          git init  # 初始化一个新的 Git 仓库
-          git add -A
-          git commit -m 'deploy'  # 提交静态文件
-          git push -f git@github.com:kidoneself/kidoneself.github.io.git main:gh-pages  # 强制推送到 gh-pages 分支
+          git config --global user.name "action"
+          git config --global user.email "8768611@qq.com"
+          git checkout gh-pages
+          cp -r .vuepress/dist/* .
+          git add .
+          git commit -m "Deploy built files"
+          git push origin gh-pages
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
