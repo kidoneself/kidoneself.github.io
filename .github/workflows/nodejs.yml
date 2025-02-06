@@ -23,7 +23,8 @@ jobs:
       # 安装 Yarn 2.x (Berry)
       - name: Install Yarn 2.x
         run: |
-          npm install -g yarn@berry  # 安装 Yarn 2.x
+          npm install -g yarn@^2.0.0  # 安装 Yarn 2.x
+          yarn --version 
 
       # 安装依赖
       - name: Install Dependencies
