@@ -42,15 +42,12 @@ jobs:
       # 将构建的静态文件推送到 GitHub Pages 的 gh-pages 分支
       - name: Deploy to GitHub Pages
         run: |
-          cd .vuepress/dist 
-          git branch -a
+          cd .vuepress/dist  # 进入构建输出目录
           git config --global user.name "action"
           git config --global user.email "8768611@qq.com"
-          cp -r .vuepress/dist/* .
           git add .
           git commit -m "Deploy built files"
           git push -f git@github.com:kidoneself/kidoneself.github.io.git main:gh-pages
-
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
         run: |
