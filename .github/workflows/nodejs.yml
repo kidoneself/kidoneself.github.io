@@ -21,16 +21,16 @@ jobs:
           node-version: '23.5.0'  # 设置 Node.js 版本
 
       # 安装 Yarn 2.x (Berry)
-      - name: Install Yarn 2.x
+      - name: Install Yarn 1.22.19
         run: |
-          npm install -g yarn@berry  # 安装 Yarn 2.x
-
-      # 安装依赖
-      - name: Install Dependencies
-        run: |
-          yarn add fsevents@latest
-          yarn install  # 安装依赖
+          npm install -g yarn  # 安装 Yarn 2.x
           yarn version
+
+#
+#      # 安装依赖
+#      - name: Install Dependencies
+#        run: |
+#          yarn install  # 安装依赖
 
       # 构建静态文件
       - name: Build Static Files
