@@ -23,7 +23,7 @@ jobs:
       # 安装 Yarn 2.x (Berry)
       - name: Install Yarn 1.22.19
         run: |
-          npm install -g yarn  # 安装 Yarn 2.x
+          npm install -g yarn@latest  # 安装 Yarn 2.x
           yarn version
 
 #
