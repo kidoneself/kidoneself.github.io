@@ -40,24 +40,24 @@ jobs:
       #          git push origin main  # 将代码推送到 main 分支
 
       # 将构建的静态文件推送到 GitHub Pages 的 gh-pages 分支
-      - name: Deploy to GitHub Pages
-        run: |
-          cd .vuepress/dist  # 进入构建输出目录
-          git config --global user.name "action"
-          git config --global user.email "8768611@qq.com"
-          git init  # 初始化一个新的 Git 仓库（如果是首次提交）
-          git add .  # 添加当前目录下的所有文件（即 .vuepress/dist 目录下的文件）
-          git commit -m "Deploy built files"
-          git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
+#      - name: Deploy to GitHub Pages
+#        run: |
+#          cd .vuepress/dist  # 进入构建输出目录
+#          git config --global user.name "action"
+#          git config --global user.email "8768611@qq.com"
+#          git init  # 初始化一个新的 Git 仓库（如果是首次提交）
+#          git add .  # 添加当前目录下的所有文件（即 .vuepress/dist 目录下的文件）
+#          git commit -m "Deploy built files"
+#          git checkout -b gh-pages
+#          git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
 
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
+          ssh root@43.134.58.162 -p Lzq951201@ 'bash -s' << 'EOF'
           cd /home/kidoneself.github.io  # 进入服务器的项目目录
-          git pull origin gh-pages  # 拉取最新代码
-          #            yarn build  # 重新构建静态文件
+          git pull origin main  # 拉取最新代码
           sudo systemctl restart caddy  # 重启 Caddy 服务
           EOF
         env:

@@ -12,8 +12,10 @@ cd .vuepress/dist
 git init
 git add -A
 git commit -m 'deploy'
+git checkout -b gh-pages
 
 # 如果发布到 https://<USElsRNAME>.github.io/<REPO>
-git push -f git@github.com:kidoneself/kidoneself.github.io.git main:gh-pages
+git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
+
 
 cd -
