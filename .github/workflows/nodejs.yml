@@ -45,10 +45,11 @@ jobs:
           cd .vuepress/dist  # 进入构建输出目录
           git config --global user.name "action"
           git config --global user.email "8768611@qq.com"
-          cp -r .vuepress/dist/* .
-          git add -f .
+          git init  # 初始化一个新的 Git 仓库（如果是首次提交）
+          git add .  # 添加当前目录下的所有文件（即 .vuepress/dist 目录下的文件）
           git commit -m "Deploy built files"
           git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
+
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
