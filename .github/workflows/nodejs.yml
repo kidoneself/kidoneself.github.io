@@ -38,7 +38,7 @@ jobs:
           git remote set-url origin https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git
           git add -A
           git commit -m "Deploy built files"
-          git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git gh-pages
+          git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git master:gh-pages
 
 
 
