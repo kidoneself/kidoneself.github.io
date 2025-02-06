@@ -4,3 +4,7 @@ node_modules
 # 忽略构建输出文件夹
 .vuepress/dist
 .idea
+package-lock.json
+yarn.lock
+yarn.lock
+yarn.lock
