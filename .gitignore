@@ -1,0 +1,6 @@
+.vuepress/.cache
+.vuepress/.temp
+node_modules
+# 忽略构建输出文件夹
+.vuepress/dist
+.idea
