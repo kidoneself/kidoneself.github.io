@@ -28,7 +28,7 @@ jobs:
       # 安装依赖
       - name: Install Dependencies
         run: |
-          yarn install  # 安装依赖
+          npm install -g yarn@^2.0.0
           yarn version
 
       # 构建静态文件
