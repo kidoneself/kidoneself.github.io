@@ -30,26 +30,17 @@ jobs:
         run: |
           npm run build  # 构建 VuePress 静态文件
 
-      #      # 提交并推送所有代码到 main 分支
-      #      - name: Commit and Push All Code to Main
-      #        run: |
-      #          git config --global user.name "GitHub Actions"
-      #          git config --global user.email "actions@github.com"
-      #          git add -A
-      #          git commit -m "Deploy code to main"
-      #          git push origin main  # 将代码推送到 main 分支
 
-      # 将构建的静态文件推送到 GitHub Pages 的 gh-pages 分支
-#      - name: Deploy to GitHub Pages
-#        run: |
-#          cd .vuepress/dist  # 进入构建输出目录
-#          git config --global user.name "action"
-#          git config --global user.email "8768611@qq.com"
-#          git init  # 初始化一个新的 Git 仓库（如果是首次提交）
-#          git add .  # 添加当前目录下的所有文件（即 .vuepress/dist 目录下的文件）
-#          git commit -m "Deploy built files"
-#          git checkout -b gh-pages
-#          git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
+      - name: Deploy to GitHub Pages
+        run: |
+          cd .vuepress/dist  # 进入构建输出目录
+          git config --global user.name "action"
+          git config --global user.email "8768611@qq.com"
+          git init  
+          git add . 
+          git commit -m "Deploy built files"
+          git checkout -b gh-pages
+          git push -f https://github.com/kidoneself/kidoneself.github.io.git main:gh-pages
 
 
       # 通过 SSH 部署到服务器
