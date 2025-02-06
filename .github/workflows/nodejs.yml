@@ -18,12 +18,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'  # 设置 Node.js 版本
+          node-version: '23.5.0'  # 设置 Node.js 版本
 
       # 安装 Yarn 2.x (Berry)
       - name: Install Yarn 2.x
         run: |
-          npm install -g yarn@^2.0.0  # 安装 Yarn 2.x
+          npm install -g yarn@1.22.19  # 安装 Yarn 2.x
           yarn --version 
 
       # 安装依赖
