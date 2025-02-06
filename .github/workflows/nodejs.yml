@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         run: |
           yarn add vuepress@next vuepress-theme-reco@next          
-          yarn install  # 安装依赖
+#          yarn install  # 安装依赖
 
       # 构建静态文件
       - name: Build Static Files
