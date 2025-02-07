@@ -46,7 +46,7 @@ jobs:
       - name: Deploy to Server via SSH
         run: |
           mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
           cd /home/kidoneself.github.io  # 进入服务器的项目目录
