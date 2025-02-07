@@ -33,13 +33,13 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name "kidoneself"
-          git config --global user.email "8768611@qq.com"
-          git remote set-url origin https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git
+          git checkout --orphan gh-pages
+          cp -r .vuepress/dist/* .
           git add -A
           git commit -m "Deploy built files"
-          git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git master:gh-pages
-
+          git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git gh-pages
+          
+          
 
 
       # 通过 SSH 部署到服务器
