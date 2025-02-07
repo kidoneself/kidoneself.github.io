@@ -51,7 +51,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           # 可选：跳过主机密钥验证（对于 CI 很有用）
           touch ~/.ssh/known_hosts
-          ssh-keyscan -H your_server_ip >> ~/.ssh/known_hosts
+          ssh-keyscan -H 43.134.58.162 >> ~/.ssh/known_hosts
 
       - name: 通过 SSH 连接服务器并拉取代码
         run: |
