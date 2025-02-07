@@ -58,5 +58,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@43.134.58.162 << 'EOF'
             cd /home/kidoneself.github.io
             git pull origin gh-pages
-            sudo systemctl restart caddy
+            sudo docker restart caddy
           EOF
