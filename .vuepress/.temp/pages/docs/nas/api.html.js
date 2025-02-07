@@ -1,0 +1,3 @@
+import comp from "/home/runner/work/kidoneself.github.io/kidoneself.github.io/.vuepress/.temp/pages/docs/nas/api.html.vue"
+const data = JSON.parse("{\"path\":\"/docs/nas/api.html\",\"title\":\"api\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"api\",\"date\":\"2020/05/201\"},\"headers\":[{\"level\":2,\"title\":\"111111111111\",\"slug\":\"_111111111111\",\"link\":\"#_111111111111\",\"children\":[]}],\"git\":{\"createdTime\":1738898506000,\"updatedTime\":1738898506000,\"contributors\":[{\"name\":\"kidoneself\",\"email\":\"8768611@qq.com\",\"commits\":1}]},\"filePathRelative\":\"docs/nas/api.md\"}")
+export { comp, data }

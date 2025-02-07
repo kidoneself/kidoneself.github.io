@@ -1,0 +1,3 @@
+import comp from "/home/runner/work/kidoneself.github.io/kidoneself.github.io/.vuepress/.temp/pages/blogs/category1/2018/121501.html.vue"
+const data = JSON.parse("{\"path\":\"/blogs/category1/2018/121501.html\",\"title\":\"first page in category1\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"first page in category1\",\"date\":\"2018/12/112\",\"tags\":[\"tag1\"],\"categories\":[\"category1\"]},\"headers\":[],\"git\":{\"createdTime\":1738898506000,\"updatedTime\":1738898506000,\"contributors\":[{\"name\":\"kidoneself\",\"email\":\"8768611@qq.com\",\"commits\":1}]},\"filePathRelative\":\"blogs/category1/2018/121501.md\"}")
+export { comp, data }
