@@ -41,18 +41,15 @@ jobs:
           git add -A
           git commit -m "Deploy built files"
           git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git gh-pages
-          
-
-    
 
 
       # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
         run: |
-          ssh root@43.134.58.162 -p Lzq951201@ 'bash -s' << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
           cd /home/kidoneself.github.io  # 进入服务器的项目目录
-          git pull origin main  # 拉取最新代码
+          git pull origin gh-pages  # 拉取最新代码
           sudo systemctl restart caddy  # 重启 Caddy 服务
           EOF
-        env:
+          env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # 使用 GitHub Secrets 中配置的私钥
