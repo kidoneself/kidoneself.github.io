@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name "action"
+          git config --global user.name "kidoneself"
           git config --global user.email "8768611@qq.com"
           git remote set-url origin https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git
           git add -A
