@@ -48,11 +48,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@43.134.58.162 'bash -s' << 'EOF'
-          cd /home/kidoneself.github.io  # 进入服务器的项目目录
-          git pull origin gh-pages  # 拉取最新代码
-          sudo systemctl restart caddy  # 重启 Caddy 服务
-          EOF
+          ssh-agent bash -c "
+            ssh-add ~/.ssh/id_rsa;
+            ssh -o StrictHostKeyChecking=no root@43.134.58.162 'bash -s' << 'EOF'
+              cd /home/kidoneself.github.io  # 进入服务器的项目目录
+              git pull origin gh-pages  # 拉取最新代码
+              sudo systemctl restart caddy  # 重启 Caddy 服务
+            EOF
+          "
           env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # 使用 GitHub Secrets 中配置的私钥
           
