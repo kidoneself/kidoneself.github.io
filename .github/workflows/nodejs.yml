@@ -33,7 +33,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          
           git checkout --orphan gh-pages
           git config --global user.name "kidoneself"
           git config --global user.email "8768611@qq.com"
@@ -42,20 +41,18 @@ jobs:
           git commit -m "Deploy built files"
           git push -f https://secrets.GITHUB_TOKEN@github.com/kidoneself/kidoneself.github.io.git gh-pages
 
-      # 通过 SSH 部署到服务器
       - name: Deploy to Server via SSH
+        uses: actions/checkout@v2
+
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: SSH into server and pull code
         run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-agent bash -c "
-            ssh-add ~/.ssh/id_rsa;
-            ssh -o StrictHostKeyChecking=no root@43.134.58.162 'bash -s' << 'EOF'
-              cd /home/kidoneself.github.io  # 进入服务器的项目目录
-              git pull origin gh-pages  # 拉取最新代码
-              sudo systemctl restart caddy  # 重启 Caddy 服务
-            EOF
-          "
-          env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # 使用 GitHub Secrets 中配置的私钥
-          
+           ssh -o StrictHostKeyChecking=no root@43.134.58.162 << 'EOF'
+             cd /home/kidoneself.github.io
+             git pull origin gh-pages
+             sudo systemctl restart caddy
+           EOF
